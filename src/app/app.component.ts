@@ -3,6 +3,7 @@ import {select, Store} from "@ngrx/store";
 import {Observable} from "rxjs";
 import {AppState} from "./reducers";
 import {Logout} from "./auth/auth.actions";
+import {isLoggedIn, isLoggedOut} from "./auth/auth.selectors";
 
 @Component({
   selector: 'app-root',
@@ -10,13 +11,22 @@ import {Logout} from "./auth/auth.actions";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
+    isLoggedIn$: Observable<boolean>;
+    isLoggedOut$: Observable<boolean>;
 
-    constructor(private store: Store<AppState>) {
-
-    }
+    constructor(private store: Store<AppState>) {}
 
     ngOnInit() {
 
+      this.isLoggedIn$ = this.store
+        .pipe(
+          select(isLoggedIn)
+        );
+
+      this.isLoggedOut$ = this.store
+        .pipe(
+          select(isLoggedOut)
+        );
 
     }
 
