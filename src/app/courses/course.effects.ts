@@ -1,7 +1,6 @@
 
 import {Injectable} from "@angular/core";
 import {Actions, Effect, ofType} from "@ngrx/effects";
-import {Course} from "./model/course";
 import {CourseActionTypes, CourseLoaded, CourseRequested} from "./course.actions";
 import {map, mergeMap} from "rxjs/internal/operators";
 import {CoursesService} from "./services/courses.service";
