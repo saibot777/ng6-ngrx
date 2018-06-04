@@ -20,11 +20,10 @@ import {MatCardModule} from "@angular/material/card";
 import {MatButtonModule} from "@angular/material/button";
 import {MatIconModule} from "@angular/material/icon";
 import {RouterModule, Routes} from "@angular/router";
-import {EffectsModule} from "@ngrx/effects";
-import {CourseEffects} from "./course.effects";
-import {StoreModule} from "@ngrx/store";
-import {coursesReducer} from "./course.reducers";
-
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import {CourseEffects} from './course.effects';
+import {coursesReducer} from './course.reducers';
 
 
 export const coursesRoutes: Routes = [

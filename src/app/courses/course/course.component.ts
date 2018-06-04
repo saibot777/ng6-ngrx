@@ -15,7 +15,7 @@ import {LessonsDataSource} from "../services/lessons.datasource";
 })
 export class CourseComponent implements OnInit, AfterViewInit {
 
-    course: Course;
+    course:Course;
 
     dataSource: LessonsDataSource;
 
