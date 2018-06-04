@@ -2,16 +2,13 @@ import {Course} from './model/course';
 import {createEntityAdapter, EntityAdapter, EntityState} from '@ngrx/entity';
 import {CourseActions, CourseActionTypes} from './course.actions';
 
-
-
 export interface CoursesState extends EntityState<Course> {
 
-  allCoursesLoaded:boolean;
+  allCoursesLoaded: boolean;
 
 }
 
-
-export const adapter : EntityAdapter<Course> =
+export const adapter: EntityAdapter<Course> =
   createEntityAdapter<Course>();
 
 
@@ -22,7 +19,7 @@ export const initialCoursesState: CoursesState = adapter.getInitialState({
 
 export function coursesReducer(state = initialCoursesState , action: CourseActions): CoursesState {
 
-  switch(action.type) {
+  switch (action.type) {
 
     case CourseActionTypes.CourseLoaded:
 
@@ -30,11 +27,11 @@ export function coursesReducer(state = initialCoursesState , action: CourseActio
 
     case CourseActionTypes.AllCoursesLoaded:
 
-      return adapter.addAll(action.payload.courses, {...state, allCoursesLoaded:true});
+      return adapter.addAll(action.payload.courses, {...state, allCoursesLoaded: true});
 
     case CourseActionTypes.CourseSaved:
 
-      return adapter.updateOne(action.payload.course,state);
+      return adapter.updateOne(action.payload.course, state);
 
     default: {
 

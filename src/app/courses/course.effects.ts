@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {Actions, Effect, ofType} from '@ngrx/effects';
 import {AllCoursesLoaded, AllCoursesRequested, CourseActionTypes, CourseLoaded, CourseRequested} from './course.actions';
 import {throwError} from 'rxjs';
-import {catchError, concatMap, exhaustMap, filter, map, mergeMap, withLatestFrom} from "rxjs/operators";
+import {catchError, filter, map, mergeMap, withLatestFrom} from "rxjs/operators";
 import {CoursesService} from './services/courses.service';
 import {AppState} from '../reducers';
 import {select, Store} from '@ngrx/store';
@@ -39,7 +39,7 @@ export class CourseEffects {
     );
 
 
-  constructor(private actions$ :Actions, private coursesService: CoursesService,
+  constructor(private actions$: Actions, private coursesService: CoursesService,
               private store: Store<AppState>) {
 
   }

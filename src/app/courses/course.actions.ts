@@ -54,16 +54,9 @@ export class CourseSaved implements Action {
   constructor(public payload: { course: Update<Course> }) {}
 }
 
-
-
-
 export type CourseActions =
   CourseRequested
   | CourseLoaded
   | AllCoursesRequested
   | AllCoursesLoaded
   | CourseSaved;
-
-
-
-

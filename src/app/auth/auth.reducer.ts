@@ -1,11 +1,10 @@
-import { Action } from '@ngrx/store';
 import {User} from '../model/user.model';
 import {AuthActions, AuthActionTypes} from './auth.actions';
 
 
 export interface AuthState {
-  loggedIn: boolean,
-  user: User
+  loggedIn: boolean;
+  user: User;
 }
 
 export const initialAuthState: AuthState = {
