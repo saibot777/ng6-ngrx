@@ -2,7 +2,7 @@
 import {Injectable} from "@angular/core";
 import {Actions, Effect, ofType} from "@ngrx/effects";
 import {Course} from "./model/course";
-import {CourseActionTypes, CourseLoaded} from "./course.actions";
+import {CourseActionTypes, CourseLoaded, CourseRequested} from "./course.actions";
 import {map, mergeMap} from "rxjs/internal/operators";
 import {CoursesService} from "./services/courses.service";
 
@@ -13,8 +13,8 @@ export class CourseEffects {
 
   @Effect()
   loadCourse$ = this.actions$.pipe(
-    ofType<Course>(CourseActionTypes.CourseRequested),
-    mergeMap(action => this.coursesService.findCourseById(action.payload)),
+    ofType<CourseRequested>(CourseActionTypes.CourseRequested),
+    mergeMap(action => this.coursesService.findCourseById(action.payload.courseId)),
     map(course => new CourseLoaded({course}))
   );
 
