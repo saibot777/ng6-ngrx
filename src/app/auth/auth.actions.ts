@@ -10,9 +10,7 @@ export class Login implements Action {
 
   readonly type = AuthActionTypes.LoginAction;
 
-  constructor(public payload: {user: User}) {
-
-  }
+  constructor(public payload: {user: User}) {}
 }
 
 export class Logout implements Action {
