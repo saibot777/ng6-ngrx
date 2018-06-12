@@ -3,11 +3,10 @@ export const USERS = {
   1: {
       id: 1,
       email: 'test@angular-university.io',
-      password:'test'
+      password: 'test'
   }
 
 };
-
 
 export const COURSES = {
     0: {
@@ -18,7 +17,7 @@ export const COURSES = {
         longDescription: "Learn the modern Ngrx Ecosystem, including Store, Effects, Router Store, Ngrx Entity, Dev Tools and Schematics.",
         category: 'BEGINNER',
         lessonsCount: 6,
-        promo:true
+        promo: true
     },
     1: {
         id: 1,
@@ -28,7 +27,7 @@ export const COURSES = {
         longDescription: "Establish a solid layer of fundamentals, learn what's under the hood of Angular",
         category: 'BEGINNER',
         lessonsCount: 10,
-        promo:true
+        promo: true
     },
     2: {
         id: 2,
@@ -38,7 +37,7 @@ export const COURSES = {
         courseListIcon: 'https://s3-us-west-1.amazonaws.com/angular-university/course-images/lock-v2.png',
         category: 'ADVANCED',
         lessonsCount: 11,
-        promo:false
+        promo: false
     },
     3: {
         id: 3,
@@ -48,7 +47,7 @@ export const COURSES = {
         courseListIcon: 'https://s3-us-west-1.amazonaws.com/angular-university/course-images/alien.png',
         category: 'ADVANCED',
         lessonsCount: 8,
-        promo:false
+        promo: false
     },
     4: {
         id: 4,
@@ -57,7 +56,7 @@ export const COURSES = {
         iconUrl: 'https://angular-academy.s3.amazonaws.com/thumbnails/ngrx-angular.png',
         courseListIcon: 'https://angular-academy.s3.amazonaws.com/thumbnails/ngrx-small.png',
         category: 'ADVANCED',
-        promo:false
+        promo: false
     },
     5: {
         id: 5,
@@ -66,7 +65,7 @@ export const COURSES = {
         iconUrl: 'https://angular-academy.s3.amazonaws.com/thumbnails/advanced_angular-small-v3.png',
         courseListIcon: 'https://angular-academy.s3.amazonaws.com/thumbnails/angular-advanced-lesson-icon.png',
         category: 'ADVANCED',
-        promo:false
+        promo: false
     },
     6: {
         id: 6,
@@ -75,7 +74,7 @@ export const COURSES = {
         iconUrl: 'https://angular-academy.s3.amazonaws.com/thumbnails/typescript-2-small.png',
         courseListIcon: 'https://angular-academy.s3.amazonaws.com/thumbnails/typescript-2-lesson.png',
         category: 'BEGINNER',
-        promo:false
+        promo: false
     },
     7: {
         id: 7,
@@ -84,15 +83,15 @@ export const COURSES = {
         iconUrl: 'https://s3-us-west-1.amazonaws.com/angular-academy/blog/images/rxjs-reactive-patterns-small.png',
         courseListIcon: 'https://angular-academy.s3.amazonaws.com/course-logos/observables_rxjs.png',
         category: 'BEGINNER',
-        promo:false
+        promo: false
     },
     8: {
-        id:8,
+        id: 8,
         description: "Angular Material Course",
         iconUrl: "https://s3-us-west-1.amazonaws.com/angular-university/course-images/material_design.png",
         longDescription: "Build Applications with the official Angular Widget Library",
         category: 'ADVANCED',
-        promo:false
+        promo: false
     },
 };
 
@@ -360,23 +359,22 @@ export const LESSONS = {
 
 };
 
-export function findCourseById(courseId:number) {
+export function findCourseById(courseId: number) {
     return COURSES[courseId];
 }
 
-export function findLessonsForCourse(courseId:number) {
-    return Object.values(LESSONS).filter(lesson => lesson.courseId == courseId);
+export function findLessonsForCourse(courseId: number) {
+    return Object.values(LESSONS).filter(lesson => lesson.courseId === courseId);
 }
 
 
-export function authenticate(email:string, password:string) {
+export function authenticate(email: string, password: string) {
 
-    const user:any = Object.values(USERS).find(user => user.email === email);
+    const user: any = Object.values(USERS).find(user => user.email === email);
 
-    if (user && user.password == password) {
+    if (user && user.password === password) {
         return user;
-    }
-    else {
+    } else {
         return undefined;
     }
 
