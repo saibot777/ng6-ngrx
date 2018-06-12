@@ -1,7 +1,7 @@
 import {Request, Response} from 'express';
 import {COURSES} from "./db-data";
 
-export function getAllCourses(res: Response) {
+export function getAllCourses(req: Request, res: Response) {
 
     console.log("Retrieving courses data ...");
 
