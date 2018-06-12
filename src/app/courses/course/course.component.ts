@@ -2,9 +2,7 @@ import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/
 import {ActivatedRoute} from "@angular/router";
 import {MatPaginator, MatTableDataSource} from "@angular/material";
 import {Course} from "../model/course";
-import {CoursesService} from "../services/courses.service";
-import {debounceTime, distinctUntilChanged, startWith, tap, delay} from 'rxjs/operators';
-import {merge, fromEvent} from "rxjs";
+import { tap } from 'rxjs/operators';
 import {LessonsDataSource} from "../services/lessons.datasource";
 import {Store} from "@ngrx/store";
 import {AppState} from "../../reducers";
@@ -43,7 +41,7 @@ export class CourseComponent implements OnInit, AfterViewInit {
           pageSize: 3
         };
 
-        this.dataSource.loadLessons(this.course.id, initialPage)
+        this.dataSource.loadLessons(this.course.id, initialPage);
 
     }
 
@@ -58,10 +56,7 @@ export class CourseComponent implements OnInit, AfterViewInit {
     }
 
     loadLessonsPage() {
-        this.dataSource.loadLessons(
-            this.course.id,
-            this.paginator.pageIndex,
-            this.paginator.pageSize);
+
     }
 
 
