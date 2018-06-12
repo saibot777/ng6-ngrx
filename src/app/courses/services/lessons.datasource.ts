@@ -6,6 +6,9 @@ import {Observable, BehaviorSubject, of} from "rxjs";
 import {Lesson} from "../model/lesson";
 import {CoursesService} from "./courses.service";
 import {catchError, finalize} from "rxjs/operators";
+import {Store} from "@ngrx/store";
+import {AppState} from "../../reducers";
+import {PageQuery} from "../model/page";
 
 
 
@@ -17,21 +20,18 @@ export class LessonsDataSource implements DataSource<Lesson> {
 
     public loading$ = this.loadingSubject.asObservable();
 
-    constructor(private coursesService: CoursesService) {
+    constructor(private coursesService: CoursesService, private store: Store<AppState>) {
 
     }
 
-    loadLessons(courseId:number,
-                pageIndex:number,
-                pageSize:number) {
+    loadLessons(courseId: number, page: PageQuery) {
 
-        this.loadingSubject.next(true);
 
-        this.coursesService.findLessons(courseId, pageIndex, pageSize).pipe(
-                catchError(() => of([])),
-                finalize(() => this.loadingSubject.next(false))
-            )
-            .subscribe(lessons => this.lessonsSubject.next(lessons));
+        // this.coursesService.findLessons(courseId, pageIndex, pageSize).pipe(
+        //         catchError(() => of([])),
+        //         finalize(() => this.loadingSubject.next(false))
+        //     )
+        //     .subscribe(lessons => this.lessonsSubject.next(lessons));
 
     }
 
