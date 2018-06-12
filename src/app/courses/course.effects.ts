@@ -41,6 +41,7 @@ export class CourseEffects {
       })
     );
 
+  @Effect()
   loadLessons$ = this.actions$
     .pipe(
       ofType<LessonsPageRequested>(CourseActionTypes.LessonsPageRequested),
